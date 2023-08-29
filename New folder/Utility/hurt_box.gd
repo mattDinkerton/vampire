@@ -10,11 +10,11 @@ signal hurt(damage)
 func _on_area_entered(area):
 	if area.is_in_group("attack"):
 		pass
-		if not area.get("damage") = null:
+		if not area.get("damage") == null:
 			match HurtBoxType:
 				0:
 					collision.call_deferred("set", "disabled", true)
-					disableTime.start()
+					disableTimer.start()
 				1:	#HitOnce
 					pass
 				2: #DisableHitBox
