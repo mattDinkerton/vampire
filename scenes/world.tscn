@@ -1,8 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3mxariagl303"]
+[gd_scene load_steps=5 format=3 uid="uid://d3mxariagl303"]
 
 [ext_resource type="PackedScene" uid="uid://cdb07fd6rwhmq" path="res://scenes/player.tscn" id="1_rdv3p"]
 [ext_resource type="PackedScene" uid="uid://dvagpea6x22bx" path="res://scenes/label.tscn" id="2_1e68u"]
 [ext_resource type="PackedScene" uid="uid://ck1q752uvo4kn" path="res://scenes/enemy.tscn" id="3_7h1vu"]
+
+[sub_resource type="GDScript" id="GDScript_ia37a"]
+script/source = "extends CollisionPolygon2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+"
 
 [node name="world" type="Node2D"]
 
@@ -21,3 +33,4 @@ offset_bottom = -132.0
 [node name="test collision" type="CollisionPolygon2D" parent="static test"]
 position = Vector2(104, 167)
 polygon = PackedVector2Array(27, 37, 241, 304, 47, 296)
+script = SubResource("GDScript_ia37a")

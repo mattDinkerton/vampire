@@ -1,12 +1,11 @@
 extends CharacterBody2D
-#PLAYER IS IN A GROUP CALLED "player"
+
 @export var max_speed := 100
 @export var acceleration := 1500
 @export var friction := 1200
 
 @onready var axis = Vector2.ZERO
 
-var hp = 3
 
 func _physics_process(delta):
 	move(delta)
@@ -54,9 +53,3 @@ func apply_friction(amount):
 func apply_movement(accel):
 	velocity += accel
 	velocity = velocity.limit_length(max_speed)
-	
-func _on_hurtbox_area_entered(hitbox):
-	var base_damage = hitbox.base_damage
-	self.hp -= base_damage
-	print(hitbox.get_parent().name + "'s hitbox touched " + "'s hurtbox and dealt " + str(base_damage))
-	
