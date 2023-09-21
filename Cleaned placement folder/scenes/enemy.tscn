@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ck1q752uvo4kn"]
+[gd_scene load_steps=7 format=3 uid="uid://ck1q752uvo4kn"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_cw2cc"]
 [ext_resource type="Texture2D" uid="uid://fsdxcu4fmc27" path="res://icon.svg" id="2_dm767"]
-[ext_resource type="PackedScene" uid="uid://ur153tf853bk" path="res://Utility/hit_box.tscn" id="4_s1teh"]
+[ext_resource type="PackedScene" uid="uid://b3lbxq7ou13x8" path="res://scenes/hurt_box.tscn" id="4_16kur"]
+[ext_resource type="PackedScene" uid="uid://ur153tf853bk" path="res://scenes/hit_box.tscn" id="4_s1teh"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_34hjl"]
 radius = 28.0
@@ -33,4 +34,7 @@ collision_mask = 2
 position = Vector2(-1.20633, -19.8155)
 shape = SubResource("RectangleShape2D_26ccp")
 
+[node name="HurtBox" parent="." instance=ExtResource("4_16kur")]
+
 [editable path="HitBox"]
+[editable path="HurtBox"]
