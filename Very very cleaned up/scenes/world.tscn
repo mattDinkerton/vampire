@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3mxariagl303"]
+
+[ext_resource type="PackedScene" uid="uid://cdb07fd6rwhmq" path="res://scenes/player.tscn" id="1_rdv3p"]
+[ext_resource type="PackedScene" uid="uid://dvagpea6x22bx" path="res://scenes/label.tscn" id="2_1e68u"]
+[ext_resource type="PackedScene" uid="uid://ck1q752uvo4kn" path="res://scenes/enemy.tscn" id="3_7h1vu"]
+[ext_resource type="Script" path="res://scripts/HitBox.gd" id="4_bcuvp"]
+
+[node name="world" type="Node2D"]
+
+[node name="enemy" parent="." instance=ExtResource("3_7h1vu")]
+
+[node name="player" parent="." instance=ExtResource("1_rdv3p")]
+position = Vector2(554, 258)
+
+[node name="fps label" parent="player" instance=ExtResource("2_1e68u")]
+offset_left = -530.0
+offset_top = -233.0
+offset_right = -396.0
+offset_bottom = -132.0
+
+[node name="static test" type="StaticBody2D" parent="."]
+
+[node name="test collision" type="CollisionPolygon2D" parent="static test"]
+position = Vector2(104, 167)
+polygon = PackedVector2Array(27, 37, 241, 304, 47, 296)
+script = ExtResource("4_bcuvp")
