@@ -6,7 +6,10 @@ extends CharacterBody2D
 
 @onready var axis = Vector2.ZERO
 
-var hp = 60
+signal healthChanged
+
+var hp = 6
+
 
 func _physics_process(delta):
 	move(delta)
@@ -59,6 +62,10 @@ func apply_movement(accel):
 	
 
 
+
+
+
 func _on_hurt_box_hurt(damage):
 	hp -= damage
 	print(hp)
+	healthChanged.emit(hp)

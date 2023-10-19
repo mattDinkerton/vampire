@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3mxariagl303"]
+[gd_scene load_steps=7 format=3 uid="uid://d3mxariagl303"]
 
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_cdv4m"]
 [ext_resource type="PackedScene" uid="uid://cdb07fd6rwhmq" path="res://scenes/player.tscn" id="1_rdv3p"]
 [ext_resource type="PackedScene" uid="uid://dvagpea6x22bx" path="res://scenes/label.tscn" id="2_1e68u"]
 [ext_resource type="PackedScene" uid="uid://ck1q752uvo4kn" path="res://scenes/enemy.tscn" id="3_7h1vu"]
 [ext_resource type="Script" path="res://scripts/HitBox.gd" id="4_bcuvp"]
+[ext_resource type="PackedScene" uid="uid://cb30om2n6rqle" path="res://scenes/hearts_container.tscn" id="6_vgedf"]
 
 [node name="world" type="Node2D"]
+script = ExtResource("1_cdv4m")
 
 [node name="enemy" parent="." instance=ExtResource("3_7h1vu")]
 
@@ -24,3 +27,7 @@ offset_bottom = -132.0
 position = Vector2(104, 167)
 polygon = PackedVector2Array(27, 37, 241, 304, 47, 296)
 script = ExtResource("4_bcuvp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("6_vgedf")]
