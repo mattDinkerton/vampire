@@ -69,3 +69,4 @@ func _on_hurt_box_hurt(damage):
 	hp -= damage
 	print(hp)
 	healthChanged.emit(hp)
+	$DamageSound.play()
