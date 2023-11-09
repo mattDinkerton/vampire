@@ -7,8 +7,6 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func update(whole: bool):
 	if whole: sprite.frame = 0

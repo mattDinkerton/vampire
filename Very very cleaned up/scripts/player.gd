@@ -63,9 +63,14 @@ func apply_movement(accel):
 
 
 
-
-
+func framefreeze(timeScale, duration):
+	Engine.time_scale = timeScale
+	await(get_tree().create_timer(duration, true, false, true).timeout)
+	Engine.time_scale = 1.0
+	
+#TODO: play sound on hit
 func _on_hurt_box_hurt(damage):
 	hp -= damage
+	framefreeze(0.05, 1.0)
 	print(hp)
 	healthChanged.emit(hp)
