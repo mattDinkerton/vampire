@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb1j8j6a74605"]
+
+[ext_resource type="Script" path="res://timer.gd" id="1_ke2mg"]
+[ext_resource type="FontFile" uid="uid://ctncm1xv4agbq" path="res://art/Mario-Kart-DS.ttf" id="2_w0pji"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ke2mg")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 552.0
+offset_top = -192.0
+offset_right = 852.0
+offset_bottom = 108.0
+scale = Vector2(1.28513, 2.12519)
+theme_override_fonts/font = ExtResource("2_w0pji")
+theme_override_font_sizes/font_size = 26
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
