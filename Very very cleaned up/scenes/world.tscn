@@ -1,28 +1,54 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3mxariagl303"]
+[gd_scene load_steps=12 format=3 uid="uid://d3mxariagl303"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_cdv4m"]
 [ext_resource type="PackedScene" uid="uid://cdb07fd6rwhmq" path="res://scenes/player.tscn" id="1_rdv3p"]
+[ext_resource type="PackedScene" uid="uid://b77kjndyx1x7g" path="res://scenes/label.tscn" id="2_1e68u"]
 [ext_resource type="PackedScene" uid="uid://ck1q752uvo4kn" path="res://scenes/enemy.tscn" id="3_7h1vu"]
-[ext_resource type="PackedScene" uid="uid://cb1j8j6a74605" path="res://scenes/timer.tscn" id="5_gma2t"]
 [ext_resource type="PackedScene" uid="uid://cb30om2n6rqle" path="res://scenes/hearts_container.tscn" id="6_vgedf"]
+[ext_resource type="PackedScene" uid="uid://w6mrmpawy36m" path="res://scenes/pause_menu.tscn" id="7_oyoup"]
+[ext_resource type="AudioStream" uid="uid://p3kg33tu0uvy" path="res://audio/TD1.wav" id="8_pj2y1"]
+[ext_resource type="AudioStream" uid="uid://bobectu66xsyn" path="res://audio/TD2.wav" id="9_0qwwy"]
+[ext_resource type="PackedScene" uid="uid://cb1j8j6a74605" path="res://scenes/timer.tscn" id="10_buknw"]
+[ext_resource type="AudioStream" uid="uid://4wctjkfvr8rk" path="res://audio/TD3.wav" id="10_g6lex"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t8k2e"]
+streams_count = 3
+playback_mode = 1
+stream_0/stream = ExtResource("8_pj2y1")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("9_0qwwy")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("10_g6lex")
+stream_2/weight = 1.0
 
 [node name="world" type="Node2D"]
 script = ExtResource("1_cdv4m")
 
 [node name="enemy" parent="." instance=ExtResource("3_7h1vu")]
-position = Vector2(-129, 121)
 
 [node name="player" parent="." instance=ExtResource("1_rdv3p")]
-position = Vector2(578, 247)
+position = Vector2(554, 258)
 
-[node name="Control" parent="player" instance=ExtResource("5_gma2t")]
-offset_left = -578.0
-offset_top = -247.0
-offset_right = -578.0
-offset_bottom = -247.0
+[node name="DamageSound" type="AudioStreamPlayer" parent="player"]
+stream = SubResource("AudioStreamRandomizer_t8k2e")
+
+[node name="fps label" parent="player" instance=ExtResource("2_1e68u")]
+offset_left = -530.0
+offset_top = -233.0
+offset_right = -396.0
+offset_bottom = -132.0
+
+[node name="Control" parent="player" instance=ExtResource("10_buknw")]
+offset_left = -554.0
+offset_top = -258.0
+offset_right = -554.0
+offset_bottom = -258.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("6_vgedf")]
-offset_right = 89.0
-offset_bottom = 39.0
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Pause Menu" parent="CanvasLayer2" instance=ExtResource("7_oyoup")]
+process_mode = 0

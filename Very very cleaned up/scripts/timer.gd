@@ -15,7 +15,7 @@ func _ready():
 
 func _on_timer_timeout():
 	seconds += 1
-	if seconds == 5:
+	if seconds == 60:
 		reset_seconds()
 		minutes += 1
 	

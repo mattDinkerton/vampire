@@ -13,11 +13,11 @@ script = ExtResource("1_ke2mg")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 552.0
-offset_top = -192.0
-offset_right = 778.0
-offset_bottom = -110.0
-scale = Vector2(1.28513, 2.12519)
+offset_left = 529.0
+offset_top = -168.0
+offset_right = 755.0
+offset_bottom = -86.0
+scale = Vector2(0.900778, 2.09495)
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
