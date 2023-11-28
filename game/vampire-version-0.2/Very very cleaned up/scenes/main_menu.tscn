@@ -1,0 +1,70 @@
+[gd_scene load_steps=14 format=3 uid="uid://bydjl4mimh61c"]
+
+[ext_resource type="Script" path="res://scripts/Main Menu.gd" id="1_y64xm"]
+[ext_resource type="Texture2D" uid="uid://dp5ja43s2hjkd" path="res://art/UI buttons/newgame.png" id="2_8fdll"]
+[ext_resource type="Texture2D" uid="uid://bgfc3fhnmajl6" path="res://art/UI buttons/presseddown.png" id="3_5wfqk"]
+[ext_resource type="Texture2D" uid="uid://b58sr02lc2afp" path="res://art/UI buttons/newgamehover.png" id="4_t2y5t"]
+[ext_resource type="Texture2D" uid="uid://b4vlysth2uj73" path="res://art/UI buttons/continue.png" id="5_g8uap"]
+[ext_resource type="Texture2D" uid="uid://j6wji4knln7a" path="res://art/UI buttons/continuepressed.png" id="6_ulgjj"]
+[ext_resource type="Texture2D" uid="uid://b1nivdox7xbkc" path="res://art/UI buttons/continuehover.png" id="7_8wqwq"]
+[ext_resource type="Texture2D" uid="uid://8jn8pdg18v4v" path="res://art/UI buttons/options.png" id="8_27kg4"]
+[ext_resource type="Texture2D" uid="uid://cgft1eqp5pwr0" path="res://art/UI buttons/quithover.png" id="9_4y0g2"]
+[ext_resource type="Texture2D" uid="uid://t4s0wyrh2ke2" path="res://art/UI buttons/optionspressed.png" id="9_dggnv"]
+[ext_resource type="Texture2D" uid="uid://jkoheo1t8xn" path="res://art/UI buttons/optionshover.png" id="9_h22no"]
+[ext_resource type="Texture2D" uid="uid://drqjoto11jn0y" path="res://art/UI buttons/quit.png" id="9_m35js"]
+[ext_resource type="Texture2D" uid="uid://dypjsg8ydhgic" path="res://art/UI buttons/quitpressed.png" id="11_fqpk8"]
+
+[node name="Main Menu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y64xm")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 774.0
+offset_top = 316.0
+offset_right = 844.0
+offset_bottom = 456.0
+scale = Vector2(4.40593, 4.44153)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="New game" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_8fdll")
+texture_pressed = ExtResource("3_5wfqk")
+texture_hover = ExtResource("4_t2y5t")
+stretch_mode = 3
+
+[node name="Continue" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("5_g8uap")
+texture_pressed = ExtResource("6_ulgjj")
+texture_hover = ExtResource("7_8wqwq")
+stretch_mode = 3
+
+[node name="options" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_27kg4")
+texture_pressed = ExtResource("9_dggnv")
+texture_hover = ExtResource("9_h22no")
+stretch_mode = 3
+
+[node name="quit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_m35js")
+texture_pressed = ExtResource("11_fqpk8")
+texture_hover = ExtResource("9_4y0g2")
+stretch_mode = 3
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/New game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

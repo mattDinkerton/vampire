@@ -1,0 +1,108 @@
+[gd_scene load_steps=16 format=3 uid="uid://ck1q752uvo4kn"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_cw2cc"]
+[ext_resource type="Texture2D" uid="uid://iw16qw1a6s3g" path="res://art/alien/alen1-Sheet.png" id="2_1do0s"]
+[ext_resource type="PackedScene" uid="uid://b3lbxq7ou13x8" path="res://scenes/hurt_box.tscn" id="4_16kur"]
+[ext_resource type="PackedScene" uid="uid://ur153tf853bk" path="res://scenes/hit_box.tscn" id="4_s1teh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lolb"]
+atlas = ExtResource("2_1do0s")
+region = Rect2(0, 0, 54, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auxl4"]
+atlas = ExtResource("2_1do0s")
+region = Rect2(54, 0, 54, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpbkf"]
+atlas = ExtResource("2_1do0s")
+region = Rect2(108, 0, 54, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxidx"]
+atlas = ExtResource("2_1do0s")
+region = Rect2(162, 0, 54, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyx32"]
+atlas = ExtResource("2_1do0s")
+region = Rect2(216, 0, 54, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wu6h"]
+atlas = ExtResource("2_1do0s")
+region = Rect2(270, 0, 54, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f5hp"]
+atlas = ExtResource("2_1do0s")
+region = Rect2(324, 0, 54, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrbia"]
+atlas = ExtResource("2_1do0s")
+region = Rect2(378, 0, 54, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g1owv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lolb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auxl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpbkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxidx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyx32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wu6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f5hp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrbia")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 17.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_34hjl"]
+radius = 28.0
+height = 56.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26ccp"]
+size = Vector2(64, 62)
+
+[node name="enemy" type="CharacterBody2D"]
+platform_floor_layers = 4294967294
+script = ExtResource("1_cw2cc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(20.5, 10.8157)
+scale = Vector2(1.94444, 1.8341)
+sprite_frames = SubResource("SpriteFrames_g1owv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.87181
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_34hjl")
+
+[node name="HitBox" parent="." instance=ExtResource("4_s1teh")]
+position = Vector2(1.20633, 19.8155)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(-1.20633, -19.8155)
+shape = SubResource("RectangleShape2D_26ccp")
+
+[node name="HurtBox" parent="." instance=ExtResource("4_16kur")]
+
+[editable path="HitBox"]
+[editable path="HurtBox"]
