@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://ojfq15aewjv3"]
+
+[ext_resource type="Script" path="res://scenes/game_over.gd" id="1_00084"]
+
+[node name="game_over" type="Control"]
+modulate = Color(0.34902, 0.0352941, 0.0901961, 1)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_00084")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 2023.0
+offset_bottom = 1919.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 2.0
+offset_right = 1566.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 120
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="MainMenu" type="Button" parent="."]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 276.0
+offset_right = 1329.0
+offset_bottom = 439.0
+theme_override_font_sizes/font_size = 90
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 584.0
+offset_top = 526.0
+offset_right = 1333.0
+offset_bottom = 716.0
+theme_override_font_sizes/font_size = 90
+text = "Quit"
+
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
