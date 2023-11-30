@@ -435,8 +435,8 @@ terrain_set_0/terrain_1/color = Color(0, 0, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_eee14")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_t8k2e"]
-streams_count = 3
 playback_mode = 1
+streams_count = 3
 stream_0/stream = ExtResource("8_pj2y1")
 stream_0/weight = 1.0
 stream_1/stream = ExtResource("9_0qwwy")
@@ -495,7 +495,7 @@ visible = false
 process_callback = 0
 autostart = true
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(3972.46, 1782.41)
+[node name="Spawn Central" type="Node2D" parent="."]
+position = Vector2(3804, 2051)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

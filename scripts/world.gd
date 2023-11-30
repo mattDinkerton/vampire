@@ -36,4 +36,4 @@ func _on_timer_timeout():
 func spawn():
 	var enemy = load("res://scenes/enemy.tscn").instantiate()
 	add_child(enemy)
-	enemy.position = get_node("player").position + Vector2(1000,0).rotated(randf_range(0,2 * PI))
+	enemy.position = get_node("Spawn Central").position + Vector2(1000,0).rotated(randf_range(0,2 * PI))
